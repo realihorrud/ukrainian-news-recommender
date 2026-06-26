@@ -27,10 +27,10 @@ app = FastAPI(title="Ukrainian News Recommender API", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=os.getenv("ALLOWED_ORIGINS", "http://localhost:5174").split(","),
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "PATCH"],
-    allow_headers=["*"], # WTF?!
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(users.router)
