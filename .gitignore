@@ -11,5 +11,5 @@ wheels/
 
 .idea
 
-personews.db
+news.db
 .env

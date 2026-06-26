@@ -8,6 +8,7 @@ dependencies = [
     "apscheduler>=3.11.2",
     "fastapi>=0.138.0",
     "feedparser>=6.0.12",
+    "gunicorn>=26.0.0",
     "httpx>=0.28.1",
     "pydantic>=2.13.4",
     "python-jose>=3.5.0",
