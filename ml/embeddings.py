@@ -33,6 +33,7 @@ def embed_articles(conn):
         return
 
     model = get_model()
+    print('Model has been loaded.')
     texts = [f"{title}. {summary or ''}" for _, title, summary in articles]
 
     print(f"Embedding {len(articles)} articles...")
