@@ -7,7 +7,8 @@ from jose import JWTError, jwt
 
 security = HTTPBearer()
 
-CLERK_JWKS_URL = os.getenv('CLERK_JWKS_URL')
+CLERK_JWKS_URL = os.getenv('CLERK_JWKS_URL', '')
+
 
 async def get_current_user(
         credentials: HTTPAuthorizationCredentials = Security(security),
@@ -19,5 +20,5 @@ async def get_current_user(
             jwks = resp.json()
         payload = jwt.decode(token, jwks, algorithms=["RS256"])
         return payload
-    except JWTError as err:
+    except JWTError as _:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
